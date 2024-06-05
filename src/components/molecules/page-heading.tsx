@@ -1,4 +1,4 @@
-import { CalendarIcon } from '../icons/calendar'
+import { SvgIcon } from '../atoms/svg-icon'
 
 interface PageHeadingProps {
   title: string
@@ -6,8 +6,8 @@ interface PageHeadingProps {
 
 export const PageHeading: React.FC<PageHeadingProps> = ({ title }) =>
   !!title ? (
-    <div className="grid-cols-section-heading grid items-center gap-3 pb-10 pt-12">
-      <CalendarIcon />
-      <h2 className="text-dark text-3xl font-bold">{title}</h2>
+    <div className="grid-cols-section-heading border-light-grey mb-11 grid items-center gap-3 border-b pb-10 pt-12">
+      <SvgIcon icon="calendar" />
+      <h2>{title}</h2>
     </div>
   ) : null

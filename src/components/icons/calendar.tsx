@@ -1,14 +1,18 @@
 import { IconProps } from '@/icons/interface'
+import classnames from 'classnames'
 
-export const CalendarIcon: React.FC<IconProps> = (props) => (
+export const CalendarIcon: React.FC<IconProps> = ({
+  className = '',
+  ...rest
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="size-6"
-    {...props}
+    className={classnames('box-content size-6', className)}
+    {...rest}
   >
     <path
       strokeLinecap="round"

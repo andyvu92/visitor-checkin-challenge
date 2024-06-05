@@ -1,8 +1,13 @@
+import { SectionHeading } from '@/components/atoms/section-heading'
+import { SectionWrapper } from '@/components/atoms/section-wrapper'
+import { NewVisitForm } from '@/components/organisms/new-visit-form'
+
 const Home = () => {
   return (
-    <div>
-      <h1 className="bg-primaryLight bg-opacity-20 text-primary">Step 1</h1>
-    </div>
+    <SectionWrapper>
+      <SectionHeading title="Select visit type and reason" />
+      <NewVisitForm />
+    </SectionWrapper>
   )
 }
 

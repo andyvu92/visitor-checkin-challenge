@@ -11,13 +11,17 @@ const config: Config = {
         secondary: '#00B388',
         cream: '#FFF0D8',
         dark: '#111928',
+        grey: '#637381',
+        'light-grey': '#DFE4EA',
       },
       spacing: {
         ...defaultTheme.spacing,
         '22': '5.5rem',
+        'icon-large': '4.25rem',
       },
       fontSize: {
         ...defaultTheme.fontSize,
+        '2xl': ['1.5rem', '3rem'],
         '3xl': ['1.875rem', '2.375rem'],
         '4xl': ['2.5rem', '3rem'],
       },
@@ -31,6 +35,9 @@ const config: Config = {
       },
       container: {
         center: true,
+      },
+      minWidth: {
+        'select': '250px',
       },
     },
   },
