@@ -17,6 +17,7 @@ const config: Config = {
       spacing: {
         ...defaultTheme.spacing,
         '22': '5.5rem',
+        '25': '6.25rem',
         'icon-large': '4.25rem',
       },
       fontSize: {

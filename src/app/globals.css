@@ -23,7 +23,15 @@
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
     padding-right: 2.5rem;
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    @apply text-dark min-w-select ring-light-grey rounded-md border-0 px-5 py-3 text-base shadow-sm outline-none ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-primary;
+  }
+
+  form input[type='text'],
+  form input[type='date'],
+  form input[type='time'] {
+    @apply text-dark min-w-select ring-light-grey rounded-md border-0 px-5 py-3 text-base shadow-sm outline-none ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-primary;
   }
 }

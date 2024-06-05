@@ -14,13 +14,15 @@ export const Select: React.FC<SelectProps> = ({
 
   return (
     <fieldset className="flex flex-col items-start">
-      <label className="legend">{label}</label>
+      <label htmlFor={name} className="legend">
+        {label}
+      </label>
       <select
         id={name}
         required={required}
         defaultValue=""
-        name="country"
-        className="text-dark min-w-select cursor-pointer rounded-md border-0 px-5 py-3 text-base shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+        name={name}
+        className="cursor-pointer"
       >
         <option value="" disabled>
           {'–select–'}

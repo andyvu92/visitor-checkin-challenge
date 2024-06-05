@@ -1,3 +1,4 @@
+import { FormDataPostResponse } from '@/components/global/interface/form-api-data'
 import { getRandomString } from '@/components/helpers/utils'
 
 export const config = {
@@ -16,5 +17,5 @@ export const POST = async (request: Request) => {
   return Response.json({
     success: true,
     token: newSessionToken,
-  })
+  } as FormDataPostResponse)
 }

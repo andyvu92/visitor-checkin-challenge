@@ -6,5 +6,6 @@ export interface FormOptionProps {
 export interface FormInputProps {
   name: string
   label: string
+  placeholder?: string
   required?: boolean
 }
