@@ -50,6 +50,8 @@ export const VisitDetailsForm = () => {
       formData,
     )
 
+    // assume all requests to be success
+    // handling error when scale
     if (data?.success) {
       localStorage.setItem(token, JSON.stringify(data?.data))
       router.push(formStepRoutePaths.review)

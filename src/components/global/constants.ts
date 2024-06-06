@@ -19,5 +19,4 @@ export const formStepRoutePaths = {
   register: '/',
   details: '/step-2',
   review: '/step-3',
-  confirm: '/step-4',
 }

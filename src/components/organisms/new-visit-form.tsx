@@ -27,6 +27,8 @@ export const NewVisitForm = () => {
       formData,
     )
 
+    // assume all requests to be success
+    // handling error when scale
     if (data?.success) {
       if (!!data?.token) {
         localStorage.setItem(sessionStorageName.token, data.token)

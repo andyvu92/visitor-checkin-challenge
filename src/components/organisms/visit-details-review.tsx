@@ -66,6 +66,8 @@ export const VisitDetailsReview: React.FC<VisitDetailsReviewProps> = ({
         },
       )
 
+      // assume all requests to be success
+      // handling error when scale
       if (data?.success) {
         localStorage.removeItem(sessionStorageName.token)
         if (typeof setVisitDataSubmitted === 'function') {
