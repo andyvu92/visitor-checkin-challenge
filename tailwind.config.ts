@@ -11,6 +11,8 @@ const config: Config = {
         dark: '#111928',
         grey: '#637381',
         'light-grey': '#DFE4EA',
+        'success': '#22AD5C',
+        'success-dark': '#004434',
       },
       spacing: {
         '22': '5.5rem',
@@ -39,6 +41,19 @@ const config: Config = {
       },
       maxWidth: {
         'visit-details-review': '550px',
+        'notification': '620px',
+      },
+      ringWidth: {
+        '3': '3px',
+      },
+      animation: {
+        fade: 'fadeIn .5s ease-in-out',
+      },
+      keyframes: {
+        fadeIn: {
+          from: { 'opacity': '0' },
+          to: { 'opacity': '1' },
+        },
       },
     },
   },

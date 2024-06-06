@@ -24,11 +24,13 @@ export interface VisitDetailsDataProps {
 interface VisitDetailsReviewProps {
   visitDataSubmitted?: boolean
   setVisitDataSubmitted?: (submitted: boolean) => void
+  setVisitName?: (name: string) => void
 }
 
 export const VisitDetailsReview: React.FC<VisitDetailsReviewProps> = ({
   visitDataSubmitted,
   setVisitDataSubmitted,
+  setVisitName,
 }) => {
   const router = useRouter()
   const [visitData, setVisitData] = useState<VisitDetailsDataProps | null>(null)
@@ -38,7 +40,11 @@ export const VisitDetailsReview: React.FC<VisitDetailsReviewProps> = ({
     const data = !!token ? localStorage.getItem(token) : null
 
     if (!!data) {
-      setVisitData(JSON.parse(data))
+      const visitData: VisitDetailsDataProps = JSON.parse(data)
+      setVisitData(visitData)
+      if (typeof setVisitName === 'function' && !!visitData?.visitName) {
+        setVisitName(visitData?.visitName)
+      }
     } else {
       // redirect back to initial step if data not found
       if (typeof setVisitDataSubmitted === 'function') {
@@ -46,7 +52,7 @@ export const VisitDetailsReview: React.FC<VisitDetailsReviewProps> = ({
       }
       router.push(formStepRoutePaths.register)
     }
-  }, [router, setVisitDataSubmitted])
+  }, [router, setVisitDataSubmitted, setVisitName])
 
   const visitCtaHandler = async () => {
     if (!visitDataSubmitted) {

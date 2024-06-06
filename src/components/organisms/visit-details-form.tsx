@@ -34,6 +34,7 @@ export const VisitDetailsForm = () => {
     if (!!token) {
       const data = !!token ? localStorage.getItem(token) : null
       setToken(token)
+
       if (!!data) {
         setVisitData(JSON.parse(data))
       }
