@@ -29,13 +29,12 @@ export const VisitDetailsForm = () => {
   const [visitData, setVisitData] = useState<VisitDetailsDataProps | null>(null)
 
   useEffect(() => {
-    const token = sessionStorage.getItem(sessionStorageName.token)
+    const token = localStorage.getItem(sessionStorageName.token)
 
     if (!!token) {
-      const data = !!token ? sessionStorage.getItem(token) : null
+      const data = !!token ? localStorage.getItem(token) : null
       setToken(token)
       if (!!data) {
-        console.log(data)
         setVisitData(JSON.parse(data))
       }
     } else {
@@ -46,13 +45,12 @@ export const VisitDetailsForm = () => {
 
   const handleFormSubmit = async (formData: FormData) => {
     const { data } = await axios.post<FormDataPostResponse>(
-      '/step-2/api/visit-details',
+      '/step-2/api/update-visit-details',
       formData,
     )
 
     if (data?.success) {
-      console.log(data?.data)
-      sessionStorage.setItem(token, JSON.stringify(data?.data))
+      localStorage.setItem(token, JSON.stringify(data?.data))
       router.push(formStepRoutePaths.review)
     }
   }

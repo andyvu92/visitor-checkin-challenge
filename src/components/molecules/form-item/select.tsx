@@ -9,7 +9,7 @@ export const Select: React.FC<SelectProps> = ({
   label,
   required,
   options,
-  defaultValue,
+  defaultValue = '',
 }) => {
   if (!options?.length) return null
 

@@ -24,9 +24,7 @@ export const POST = async (request: Request) => {
     {} as Record<string, FormDataEntryValue>,
   )
 
-  console.log(returnData)
-
-  // exect tokenSession from data
+  // expect tokenSession from data
   // save data
   // assume that all requests will be success
   return Response.json({

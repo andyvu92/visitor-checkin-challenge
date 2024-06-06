@@ -9,7 +9,7 @@ export const DateTimeInput: React.FC<DateInputProps> = ({
   label,
   required,
   type = 'date',
-  defaultValue,
+  defaultValue = '',
 }) => (
   <fieldset className="flex flex-col items-start">
     <label className="legend" htmlFor={name}>

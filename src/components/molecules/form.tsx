@@ -24,10 +24,7 @@ export const Form: React.FC<FormProps> = ({
     <form className="flex flex-col gap-9" onSubmit={submitHandler}>
       {children}
       {!!submitLabel && (
-        <button
-          type="submit"
-          className="bg-secondary ml-auto rounded-md px-7 py-3 text-base font-light text-white shadow-sm hover:bg-opacity-90"
-        >
+        <button type="submit" className="primary-cta">
           {submitLabel}
         </button>
       )}
