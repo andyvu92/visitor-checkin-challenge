@@ -20,18 +20,26 @@ import {
   visitEntryOptions,
 } from '@/global/data/form'
 import { stringArrToFormOptions } from '../helpers/utils'
+import { VisitDetailsDataProps } from './visit-details-review'
 
 export const VisitDetailsForm = () => {
   const router = useRouter()
   const [token, setToken] = useState('')
 
+  const [visitData, setVisitData] = useState<VisitDetailsDataProps | null>(null)
+
   useEffect(() => {
     const token = sessionStorage.getItem(sessionStorageName.token)
 
     if (!!token) {
+      const data = !!token ? sessionStorage.getItem(token) : null
       setToken(token)
+      if (!!data) {
+        console.log(data)
+        setVisitData(JSON.parse(data))
+      }
     } else {
-      // redirect back to initial step if token not found
+      // redirect back to initial step if data not found
       router.push(formStepRoutePaths.register)
     }
   }, [router])
@@ -43,6 +51,7 @@ export const VisitDetailsForm = () => {
     )
 
     if (data?.success) {
+      console.log(data?.data)
       sessionStorage.setItem(token, JSON.stringify(data?.data))
       router.push(formStepRoutePaths.review)
     }
@@ -57,24 +66,28 @@ export const VisitDetailsForm = () => {
             label="Visit name"
             placeholder="John Citizen"
             required
+            defaultValue={visitData?.visitName}
           />
           <DateTimeInput
             name={formInputName.entryDate}
             label="Date"
             type="date"
             required
+            defaultValue={visitData?.entryDate}
           />
           <DateTimeInput
             name={formInputName.entryTime}
             label="Entry time"
             type="time"
             required
+            defaultValue={visitData?.entryTime}
           />
           <Select
             name={formInputName.visitDuration}
             label="Visit duration"
             options={stringArrToFormOptions(visitDurationOptions)}
             required
+            defaultValue={visitData?.visitDuration}
           />
         </div>
         <div className="flex flex-col gap-9">
@@ -83,24 +96,28 @@ export const VisitDetailsForm = () => {
             label="Entry point"
             options={stringArrToFormOptions(visitEntryOptions)}
             required
+            defaultValue={visitData?.entryPoint}
           />
           <Select
             name={formInputName.meetingPointLevel}
             label="Meeting point level"
             options={stringArrToFormOptions(meetingPointLevelOptions)}
             required
+            defaultValue={visitData?.meetingPointLevel}
           />
           <Select
             name={formInputName.meetingPointStand}
             label="Meeting point stand"
             options={stringArrToFormOptions(meetingPointStandOptions)}
             required
+            defaultValue={visitData?.meetingPointStand}
           />
           <Select
             name={formInputName.meetingPointRoom}
             label="Meeting point room"
             options={stringArrToFormOptions(meetingPointRoomOptions)}
             required
+            defaultValue={visitData?.meetingPointRoom}
           />
         </div>
       </div>

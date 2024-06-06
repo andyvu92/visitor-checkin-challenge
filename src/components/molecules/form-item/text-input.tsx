@@ -5,6 +5,7 @@ export const TextInput: React.FC<FormInputProps> = ({
   label,
   required,
   placeholder,
+  defaultValue,
 }) => (
   <fieldset className="flex flex-col items-start">
     <label className="legend" htmlFor={name}>
@@ -16,6 +17,7 @@ export const TextInput: React.FC<FormInputProps> = ({
       id={name}
       required={required}
       placeholder={placeholder}
+      defaultValue={defaultValue}
     />
   </fieldset>
 )

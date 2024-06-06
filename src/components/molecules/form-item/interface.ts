@@ -8,4 +8,5 @@ export interface FormInputProps {
   label: string
   placeholder?: string
   required?: boolean
+  defaultValue?: string
 }

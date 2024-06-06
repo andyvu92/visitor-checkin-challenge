@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import { NameValueGroup } from '../molecules/name-value-group'
 import moment from 'moment'
 
-interface VisitDetailsDataProps {
+export interface VisitDetailsDataProps {
   entryDate: string
   entryPoint: string
   entryTime: string

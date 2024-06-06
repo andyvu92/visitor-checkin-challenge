@@ -9,6 +9,7 @@ export const DateTimeInput: React.FC<DateInputProps> = ({
   label,
   required,
   type = 'date',
+  defaultValue,
 }) => (
   <fieldset className="flex flex-col items-start">
     <label className="legend" htmlFor={name}>
@@ -19,6 +20,7 @@ export const DateTimeInput: React.FC<DateInputProps> = ({
       name={name}
       id={name}
       required={required}
+      defaultValue={defaultValue}
       className="cursor-pointer"
     />
   </fieldset>

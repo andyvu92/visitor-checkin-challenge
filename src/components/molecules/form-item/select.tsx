@@ -9,6 +9,7 @@ export const Select: React.FC<SelectProps> = ({
   label,
   required,
   options,
+  defaultValue,
 }) => {
   if (!options?.length) return null
 
@@ -20,9 +21,10 @@ export const Select: React.FC<SelectProps> = ({
       <select
         id={name}
         required={required}
-        defaultValue=""
         name={name}
         className="cursor-pointer"
+        defaultValue={defaultValue}
+        key={defaultValue} // force rerender as select dropdown has confusing behaviour without being a controlled component
       >
         <option value="" disabled>
           {'–select–'}
