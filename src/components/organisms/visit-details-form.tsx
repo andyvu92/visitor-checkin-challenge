@@ -2,6 +2,7 @@
 import axios from 'axios'
 import {
   formInputName,
+  formStepRoutePaths,
   sessionStorageName,
 } from '@/components/global/constants'
 import { Select } from '@/components/molecules/form-item/select'
@@ -18,6 +19,7 @@ import {
   visitDurationOptions,
   visitEntryOptions,
 } from '@/global/data/form'
+import { stringArrToFormOptions } from '../helpers/utils'
 
 export const VisitDetailsForm = () => {
   const router = useRouter()
@@ -25,13 +27,12 @@ export const VisitDetailsForm = () => {
 
   useEffect(() => {
     const token = sessionStorage.getItem(sessionStorageName.token)
-    console.log({ token })
 
     if (!!token) {
       setToken(token)
     } else {
       // redirect back to initial step if token not found
-      router.push('/')
+      router.push(formStepRoutePaths.register)
     }
   }, [router])
 
@@ -43,7 +44,7 @@ export const VisitDetailsForm = () => {
 
     if (data?.success) {
       sessionStorage.setItem(token, JSON.stringify(data?.data))
-      router.push('/step-3')
+      router.push(formStepRoutePaths.review)
     }
   }
 
@@ -72,7 +73,7 @@ export const VisitDetailsForm = () => {
           <Select
             name={formInputName.visitDuration}
             label="Visit duration"
-            options={visitDurationOptions}
+            options={stringArrToFormOptions(visitDurationOptions)}
             required
           />
         </div>
@@ -80,25 +81,25 @@ export const VisitDetailsForm = () => {
           <Select
             name={formInputName.entryPoint}
             label="Entry point"
-            options={visitEntryOptions}
+            options={stringArrToFormOptions(visitEntryOptions)}
             required
           />
           <Select
             name={formInputName.meetingPointLevel}
             label="Meeting point level"
-            options={meetingPointLevelOptions}
+            options={stringArrToFormOptions(meetingPointLevelOptions)}
             required
           />
           <Select
             name={formInputName.meetingPointStand}
             label="Meeting point stand"
-            options={meetingPointStandOptions}
+            options={stringArrToFormOptions(meetingPointStandOptions)}
             required
           />
           <Select
             name={formInputName.meetingPointRoom}
             label="Meeting point room"
-            options={meetingPointRoomOptions}
+            options={stringArrToFormOptions(meetingPointRoomOptions)}
             required
           />
         </div>

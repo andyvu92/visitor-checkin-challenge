@@ -14,3 +14,10 @@ export const formInputName = {
 export const sessionStorageName = {
   token: 'visit-token',
 }
+
+export const formStepRoutePaths = {
+  register: '/',
+  details: '/step-2',
+  review: '/step-3',
+  confirm: '/step-4',
+}

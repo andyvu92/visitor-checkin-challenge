@@ -4,14 +4,16 @@ import { PersonIcon } from '../icons/person'
 import { TruckIcon } from '../icons/truck'
 import { StarIcon } from '../icons/star'
 import { IconProps } from '../icons/interface'
+import { PencilIcon } from '../icons/pencil'
 
-export type IconType = 'calendar' | 'person' | 'truck' | 'star'
+export type IconType = 'calendar' | 'person' | 'truck' | 'star' | 'pencil'
 
 const iconByString: IconByString = {
   'calendar': CalendarIcon,
   'person': PersonIcon,
   'truck': TruckIcon,
   'star': StarIcon,
+  'pencil': PencilIcon,
 }
 
 export type IconByString = {
@@ -19,7 +21,7 @@ export type IconByString = {
 }
 
 export interface SvgIconProps {
-  icon: IconType
+  icon?: IconType
   className?: string
 }
 
